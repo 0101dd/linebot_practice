@@ -1,0 +1,13 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "custom";
+@import "../node_modules/bootstrap/scss/variables";
+// @import "../node_modules/bootstrap/scss/mixins";
+// @import "../node_modules/bootstrap/scss/root";
+$custom-theme-colors: (
+  "coffee": rgb(185, 143, 88),
+  "dark-coffee": rgb(65, 41, 11),
+  "tomato": rgb(192, 19, 19)
+  );
+  
+  $theme-colors: map-merge($custom-theme-colors, $theme-colors);
+@import "../node_modules/bootstrap/scss/bootstrap";

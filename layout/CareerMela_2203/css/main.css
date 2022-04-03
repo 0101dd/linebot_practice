@@ -1,0 +1,9 @@
+body {
+  background-color: aqua;
+  display: block;
+}
+
+.box {
+  color: red;
+  margin-top: auto;
+}

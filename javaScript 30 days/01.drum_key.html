@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JavaScript 30days - 01_drum kit</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      body {
+        background: linear-gradient(45deg, rgb(35, 35, 48), rgb(44, 73, 71));
+        height: 100vh;
+      }
+      .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        width: 120px;
+        height: 120px;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgb(27, 27, 27);
+        border-radius: 5px;
+        font-size: 3rem;
+        color: white;
+        text-align: center;
+        line-height: 100px;
+        margin: 20px;
+        position: relative;
+      }
+      .box span {
+        font-size: 1rem;
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgb(170, 224, 245);
+      }
+      .play {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgb(125, 155, 147);
+        transition: 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div data-key="65" class="box">
+        A
+        <span>CLAP</span>
+      </div>
+      <div data-key="83" class="box">
+        S
+        <span>HIHAT</span>
+      </div>
+      <div data-key="68" class="box">
+        D
+        <span>KICK</span>
+      </div>
+      <div data-key="70" class="box">
+        F
+        <span>OPENHAT</span>
+      </div>
+      <div data-key="71" class="box">
+        G
+        <span>BOOM</span>
+      </div>
+      <div data-key="72" class="box">
+        H
+        <span>RIDE</span>
+      </div>
+      <div data-key="74" class="box">
+        J
+        <span>SNARE</span>
+      </div>
+      <div data-key="75" class="box">
+        K
+        <span>TOM</span>
+      </div>
+      <div data-key="76" class="box">
+        L
+        <span>TINK</span>
+      </div>
+    </div>
+
+    <audio data-key="65" src="drum kit sounds/01 - JavaScript Drum Kit_sounds_clap.wav"></audio>
+    <audio data-key="83" src="drum kit sounds/01 - JavaScript Drum Kit_sounds_hihat.wav"></audio>
+    <audio data-key="68" src="drum kit sounds/01 - JavaScript Drum Kit_sounds_kick.wav"></audio>
+    <audio data-key="70" src="drum kit sounds/01 - JavaScript Drum Kit_sounds_openhat.wav"></audio>
+    <audio data-key="71" src="drum kit sounds/01 - JavaScript Drum Kit_sounds_boom.wav"></audio>
+    <audio data-key="72" src="drum kit sounds/01 - JavaScript Drum Kit_sounds_ride.wav"></audio>
+    <audio data-key="74" src="drum kit sounds/01 - JavaScript Drum Kit_sounds_snare.wav"></audio>
+    <audio data-key="75" src="drum kit sounds/01 - JavaScript Drum Kit_sounds_tom.wav"></audio>
+    <audio data-key="76" src="drum kit sounds/01 - JavaScript Drum Kit_sounds_tink.wav"></audio>
+    
+
+    <script>
+      function playSound (e) {
+        const audio = document.querySelector(`audio[data-key='${e.keyCode}']`)
+        const box = document.querySelector(`div[data-key='${e.keyCode}']`)
+        audio.currentTime = 0
+        audio.play()
+        box.classList.add('play')
+      }
+      
+      function removeTransition (e) {
+        if (e.propertyName !== 'transform') return
+        this.classList.remove('play')
+      }
+
+      const boxes = document.querySelectorAll('.box')
+      boxes.forEach(box => box.addEventListener('transitionend', removeTransition))
+
+      window.addEventListener('keydown', playSound)
+    </script>
+  </body>
+</html>

@@ -5,18 +5,11 @@
   text-align: center;
   top: 25%;
   z-index: 0;
-}
-
-#section01 p::before {
-  content: '';
-  background: #fff692;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 3s;
+  transition: transform .3s;
 }
 
 #section01 p:hover::before {
-  content: '';
+  /* content: ''; */
   position: absolute;
   /* background: #fff692; */
   width: 300px;
@@ -26,6 +19,14 @@
   left: 28%;
   z-index: -1;
   transform: scaleX(1);
+  transform-origin: bottom right;
+  transition: transform .3s;
+}
+
+#section01 p::before {
+  content: '';
+  background: #fff692;
+  transform: scaleX(0);
   transform-origin: bottom left;
   /* transition: transform 3s; */
 }

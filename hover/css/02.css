@@ -1,0 +1,33 @@
+#section02 .img {
+  position: relative;
+  top: 43%;  
+  left:50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  z-index: 1;
+}
+
+#section02 .img::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  top: 0;
+  left: 0;
+  background: rgb(255, 242, 141);
+  z-index: -1;
+  transition: .5s;
+}
+
+#section02 .img:hover::before {
+  transform: translate(20px, 20px);
+  transition: .5s;
+}
+
+#section02 .img:hover {
+  cursor: pointer;
+}
+
+#section02 h6::before {
+  width: 27%;
+}

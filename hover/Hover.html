@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>hover</title>
   <link rel="stylesheet" href="css/01.css">
+  <link rel="stylesheet" href="css/02.css">
 
   <style>
     * {
@@ -67,6 +68,12 @@
     .sidebar {
       width: 20%;
       background: #3f4f70;
+      overflow: scroll;
+    }
+
+    .sidebar ul {
+      position: sticky;
+      top: 20px;
     }
 
     .content {
@@ -99,13 +106,14 @@
       letter-spacing: 2px;
       display: inline;
       z-index: 1;
+      display: inline-block;
     }
 
     h6::before {
       content: '';
       position: absolute;
       left: -1rem;
-      width: 115%;
+      width: 20%;
       height: 30px;
       background: #3f4f70;
       color: white;
@@ -119,7 +127,8 @@
   <div class="sidebar">
     <ul>
       <li><a href="#section01">01 - transform-origin</a></li>
-      <li><a href="#section02">02 - transform-origin</a></li>
+      <li><a href="#section02">02 - pattern + background combo</a></li>
+      <li><a href="#section03">02 - pattern + background combo</a></li>
     </ul>
   </div>
   <div class="content">
@@ -130,7 +139,13 @@
         <p>HOVER ME!</p>
       </section>
       <section id="section02">
-        <h6>02 - transform-origin</h6>
+        <h6>02 - pattern + background combo</h6>
+        <div class="img">
+          <img src="https://picsum.photos/300/200/?random=10">
+        </div>
+      </section>
+      <section id="section03">
+
       </section>
     </div>
   </div>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. CSS variables</title>
+  <style>
+    :root {
+      --spacing: 10px;
+      --blur: 10px;
+      --base: #ffc600;
+    }
+
+    body {
+      background: rgb(49, 50, 77);
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      margin-bottom: 50px;
+    }
+
+    span {
+      font-size: 3rem;
+      color: var(--base);
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(--blur);
+    }
+  </style>
+</head>
+<body>
+  <h1>Update CSS Variables with <span class="hl">JS</span> </h1>
+  <div class="container">
+    <label>
+      spacing:
+      <input type="range" id="spacing" name="spacing" min="10" max="200" value="10" data-sizing="px">
+    </label>
+    <label>
+      blue:
+      <input type="range" id="blur" name="blur" min="10" max="200" value="10" data-sizing="px">
+    </label>
+    <label>
+      <input type="color" id="base" name="base" value="#ffc600">
+    </label>
+  </div>
+  <img src="https://picsum.photos/500/300/?random=10">
+  <script>
+    const input = document.querySelectorAll('.container input')
+  </script>
+</body>
+</html>

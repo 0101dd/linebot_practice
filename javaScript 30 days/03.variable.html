@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,7 @@
   <style>
     :root {
       --spacing: 10px;
-      --blur: 10px;
+      --blur: 0px;
       --base: #ffc600;
     }
 
@@ -30,10 +31,11 @@
     img {
       padding: var(--spacing);
       background: var(--base);
-      filter: blur(--blur);
+      filter: blur(var(--blur));
     }
   </style>
 </head>
+
 <body>
   <h1>Update CSS Variables with <span class="hl">JS</span> </h1>
   <div class="container">
@@ -42,8 +44,8 @@
       <input type="range" id="spacing" name="spacing" min="10" max="200" value="10" data-sizing="px">
     </label>
     <label>
-      blue:
-      <input type="range" id="blur" name="blur" min="10" max="200" value="10" data-sizing="px">
+      blur:
+      <input type="range" id="blur" name="blur" min="0" max="100" value="10" data-sizing="px">
     </label>
     <label>
       <input type="color" id="base" name="base" value="#ffc600">
@@ -51,7 +53,21 @@
   </div>
   <img src="https://picsum.photos/500/300/?random=10">
   <script>
-    const input = document.querySelectorAll('.container input')
+    (function () {
+      const inputs = document.querySelectorAll('.container input')
+
+      function valueUpdate() {
+        const suffix = this.dataset.sizing || '';
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
+      }
+
+      inputs.forEach(function (input) {
+        input.addEventListener('change', valueUpdate)
+        input.addEventListener('mousemove', valueUpdate)
+      })
+
+    })()
   </script>
 </body>
+
 </html>
